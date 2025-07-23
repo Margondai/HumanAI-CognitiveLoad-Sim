@@ -1,6 +1,5 @@
 # HumanAI-CognitiveLoad-Sim
 
-
 A digital twin simulation framework for evaluating emotion-aware AI in human-AI teaming for defense operations, including adaptive load management and comparison with static AI systems.
 
 This framework models 100 agent archetypes (novices to veterans) over 30,000 simulation steps, integrating:
@@ -20,9 +19,8 @@ This framework models 100 agent archetypes (novices to veterans) over 30,000 sim
 ## Repository Structure
 
 * `simulation_framework.py` – Core simulation engine
-* `run_simulation.py` – Example runner (to quickly test the sim)
-* `data/` – Folder for storing generated or synthetic datasets
-* `analysis/` – Scripts for visualization and statistical analysis
+* `requirements.txt` – Python dependencies
+* `data/` – Folder for storing PhysioNet datasets
 * `docs/` – Documentation and references (e.g., MODSIM 2025 paper)
 
 ## Installation
@@ -40,29 +38,49 @@ source venv/bin/activate   # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+## Data Setup
+
+This simulation requires PhysioNet stress recognition data:
+
+1. Download the dataset from: https://physionet.org/content/drivedb/1.0.0/
+2. Place the processed CSV file as: `data/physionet_stress_data.csv`
+3. Ensure the CSV contains columns: `HRV_LF_HF_ratio`, `GSR_level`
+
 ## Quick Start
 
-To run a basic simulation with 100 agents over 30,000 steps:
+To run the full simulation with 100 agents over 30,000 steps:
 
 ```bash
 python simulation_framework.py
 ```
 
-This will output a sample dataset showing each agent's Calm vs. Overloaded time for testing purposes.
-
-For more detailed analysis including visualizations and statistical comparisons, see `analysis/` directory.
+This will:
+- Generate 100 agents across 5 military archetypes
+- Run both emotion-aware and emotion-agnostic AI conditions
+- Perform statistical analysis (t-tests, Cohen's d)
+- Generate visualization plots
+- Save detailed results in JSON format
 
 ## Methodology
 
 The simulation employs a discrete-event model based on Markov transitions among three emotional states (Calm, Stressed, Overloaded). Agent archetypes include:
 
-* Veteran High Performers (15%)
-* Experienced Stable (25%) 
-* Average Operators (30%)
-* Stressed Performers (15%)
-* High-Risk Individuals (15%)
+* **Veteran High Performers** (15%) - High resilience, low PTSS
+* **Experienced Stable** (25%) - Moderate experience, good stability
+* **Average Operators** (30%) - Standard military personnel
+* **Stressed Performers** (15%) - Higher stress susceptibility
+* **High-Risk Individuals** (10%) - High PTSS, lower resilience
 
 Physiological data is processed using an SVM classifier with thresholds: Overloaded (>1.8), Stressed (>1.3), Calm (≤1.3).
+
+## Expected Results
+
+The simulation typically produces:
+- Enhanced state distribution visualization
+- Statistical analysis summary
+- Transition probability matrices
+- Performance metrics comparison
+- Timestamped results file (JSON)
 
 ## License
 
@@ -88,5 +106,4 @@ MODSIM World 2025.
 ## Contact
 
 For questions regarding this research, please contact: Ancuta.Margondai@ucf.edu
-
 
