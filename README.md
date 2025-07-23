@@ -21,7 +21,9 @@ This framework models 100 agent archetypes (novices to veterans) over 30,000 sim
 * `simulation_framework.py` – Core simulation engine
 * `requirements.txt` – Python dependencies
 * `data/` – Folder for storing PhysioNet datasets
-* `docs/` – Documentation and references (e.g., MODSIM 2025 paper)
+* `docs/` – **Research paper and documentation**
+  * `MODSIM_2025_Emotion_Aware_AI_Paper.pdf` – Full research paper
+* `LICENSE` – MIT License
 
 ## Installation
 
