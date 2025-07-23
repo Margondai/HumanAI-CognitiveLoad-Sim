@@ -2,10 +2,15 @@
 # A digital twin simulation for emotion-aware AI in human-AI teaming (defense operations)
 
 import numpy as np
+import os
 import random
 import matplotlib.pyplot as plt
 import pandas as pd
 from scipy.stats import truncnorm, t
+import uuid
+import json
+from collections import defaultdict
+from datetime import datetime
 
 # Define BASE_PARAMETERS (from research literature)
 BASE_PARAMETERS = {
@@ -484,7 +489,11 @@ if __name__ == '__main__':
     for archetype, count in archetype_counts.items():
         print(f"  {archetype}: {count} agents ({count}%)")
 
-    physionet_csv = "/Users/ancuta/Desktop/Presentations 2025/Anna's data/stress-recognition-in-automobile-drivers-1.0.0/physionet_stress_data.csv"
+    physionet_csv = "data/physionet_stress_data.csv"
+    # Data source: Healey, J., & Picard, R. (2005). Detecting stress during real-world 
+    # driving tasks using physiological sensors. IEEE Transactions on Intelligent 
+    # Transportation Systems, 6(2), 156–166.
+    # Available at: https://physionet.org/content/drivedb/1.0.0/
     print("\n" + "=" * 50)
     print("RUNNING SIMULATIONS")
     print("=" * 50)
@@ -694,20 +703,3 @@ if __name__ == '__main__':
     print(f"✓ Environmental factors included")
     print(f"✓ Results visualization generated")
     print(f"✓ Detailed logs saved")
-
-def run_simulation(steps=30000, agents=100):
-    """Run a simplified simulation (placeholder loop).
-    This version can be expanded to include agent state transitions, workload adjustments, and logging."""
-    print(f"Running simulation with {agents} agents for {steps} steps...")
-    # Placeholder: Here, implement state transitions, AI adaptation logic, and data logging.
-    # Currently just returns dummy DataFrame for testing.
-    data = pd.DataFrame({
-        "AgentID": np.arange(agents),
-        "Calm_Time": np.random.uniform(30, 50, agents),
-        "Overloaded_Time": np.random.uniform(20, 40, agents)
-    })
-    return data
-
-if __name__ == "__main__":
-    results = run_simulation()
-    print(results.head())
