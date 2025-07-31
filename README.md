@@ -1,5 +1,9 @@
 # HumanAI-CognitiveLoad-Sim
 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
+[![Conference](https://img.shields.io/badge/Conference-MODSIM%20World%202025-green.svg)](https://modsimworld.org/)
+
 A digital twin simulation framework for evaluating emotion-aware AI in human-AI teaming for defense operations, including adaptive load management and comparison with static AI systems.
 
 This framework models 100 agent archetypes (novices to veterans) over 30,000 simulation steps, integrating:
